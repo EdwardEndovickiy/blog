@@ -13,17 +13,23 @@
   <body>
     <div class="container">
       <div class="row">
-        <div class="col-9">
+        <div class="body"><div class="container"></div></div>
+        <div class="col-12">
           <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
-            <% if user_signed_in? %>
-              <%= link_to "Exit", destroy_user_session_path, method: :delete %>
-            <% else %>
-              <%= link_to "Sign in", new_user_session_path %>
-              <%= link_to "Registration", new_user_registration_path %>
-            <% end %>
+            <div>
+              <% if user_signed_in? %>
+                <%= link_to "Exit", destroy_user_session_path, method: :delete %>
+              <% else %>
+                 <%= link_to "Sign in", new_user_session_path %>
+                <%= link_to "Registration", new_user_registration_path %>
+              <% end %>
+            </div>
           </nav>
-          <p class="notice"><%= notice %></p>
-          <p class="alert"><%= alert %></p>
+          <div>
+            <p class="notice"><%= notice %></p>
+            <p class="alert"><%= alert %></p>
+          </div>
+
           <!-- <div class="container">
             <div class="row">
               <%= flash.each do |name, message| %>
@@ -34,7 +40,9 @@
               <% end %>
             </div>
           </div> -->
-          <%= yield %>
+          <div class="container">
+           <%= yield %>
+          </div></div>
         </div>
       </div>
     </div>

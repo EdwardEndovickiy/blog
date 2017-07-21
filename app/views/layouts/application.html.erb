@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Blog2</title>
+    <%= csrf_meta_tags %>
+
+    <%= stylesheet_link_tag "https://fonts.googleapis.com/icon?family=Material+Icons" %>
+
+    <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+    <div class="container">
+      <div class="row">
+        <div class="col-9">
+          <nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+            <% if user_signed_in? %>
+              <%= link_to "Exit", destroy_user_session_path, method: :delete %>
+            <% else %>
+              <%= link_to "Sign in", new_user_session_path %>
+              <%= link_to "Registration", new_user_registration_path %>
+            <% end %>
+          </nav>
+          <p class="notice"><%= notice %></p>
+          <p class="alert"><%= alert %></p>
+          <!-- <div class="container">
+            <div class="row">
+              <%= flash.each do |name, message| %>
+                <div class="alert <%= bootstrap_class_for(name) %>">
+                  <button class="close" data-dismiss="alert">&times;</button>
+                </div>
+                <%= message %>
+              <% end %>
+            </div>
+          </div> -->
+          <%= yield %>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>

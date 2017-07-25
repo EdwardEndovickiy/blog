@@ -16,6 +16,26 @@
 @import "bootstrap";
 @import "material";
 
+nav.header {
+  background: rgba(0, 0, 128, 0.79);
+  position: absolute;
+  left: 0;
+  width: 100%;
+  .nav-link {
+    float: right;
+    padding-right: 10px;
+  }
+  .label {
+    color: #fff;
+    position: relative;
+    top: 7px;
+    left: 30px;
+  }
+}
+.navbar-admin {
+  background: rgb(60, 42, 7) !important;
+}
+
 .body {
   position: fixed;
   box-shadow: 0 0 5px;

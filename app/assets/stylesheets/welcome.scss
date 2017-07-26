@@ -1,3 +1,48 @@
 // Place all the styles related to the Welcome controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+nav.header {
+  background: rgba(0, 0, 128, 0.79);
+  position: fixed;
+  top: 0;
+  z-index: 4;
+  width: 80vw;
+  margin: 0 10vw;
+
+  .nav-link {
+    float: right;
+    padding-right: 10px;
+  }
+  .label {
+    color: #fff;
+    position: relative;
+    top: 7px;
+    left: 30px;
+  }
+}
+.navbar-admin {
+  background: rgb(60, 42, 7) !important;
+}
+
+.body {
+  position: fixed;
+  top: 0;
+  box-shadow: 0 0 5px;
+  height: 100vh;
+  width: 80vw;
+  margin: 0 10vw;
+}
+.body-yield {
+  margin-top: 50px;
+}
+footer {
+  position: fixed;
+  bottom: 0;
+  z-index: 4;
+  width: 80vw;
+  margin: 0 10vw;
+  background: rgba(0, 0, 128, 0.79);
+  padding: 0.5rem 1rem;
+  color: #fff;
+}

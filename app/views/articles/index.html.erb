@@ -1,8 +1,17 @@
 <% if user_signed_in? && current_user.admin? %>
   <%= link_to 'New articles', new_admin_article_path %>
 <% end %>
-<section id='articles'>
-  <%= render @articles %>
-</section>
+<div class="row">
+  <div class="col-md-9">
+    <section id='articles'>
+      <%= render @articles %>
+    </section>
+  </div>
+  <div class="col-md-3">
+    <% tag_cloud(Tag.counts, %w{tag1 tag2 tag3 tag4 tag5}) do |tag, css_class| %>
+      <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+    <% end %>
+  </div>
+</div>
 
 <%= will_paginate @articles, renderer: 'BootstrapPaginationHelper::LinkRenderer' %>

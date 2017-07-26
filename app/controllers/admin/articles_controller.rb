@@ -37,7 +37,7 @@ class Admin::ArticlesController < Admin::AdminController
 
   private
     def article_params
-      params.require(:article).permit(:title, :text, :image, :all_tags)
+      params.require(:article).permit(:title, :text, :image, :all_tags, :price)
     end
 
 end

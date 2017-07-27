@@ -10,21 +10,24 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170726110954) do
+ActiveRecord::Schema.define(version: 20170727073051) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "articles", force: :cascade do |t|
     t.string "title"
     t.text "text"
-    t.string "image"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.decimal "price", default: "0.0"
+    t.float "price", default: 0.0
     t.integer "likes", default: 0
+    t.string "image"
   end
 
   create_table "taggings", force: :cascade do |t|
-    t.integer "article_id"
-    t.integer "tag_id"
+    t.bigint "article_id"
+    t.bigint "tag_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["article_id"], name: "index_taggings_on_article_id"
@@ -38,6 +41,7 @@ ActiveRecord::Schema.define(version: 20170726110954) do
   end
 
   create_table "users", force: :cascade do |t|
+    t.boolean "admin", default: false
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
@@ -49,10 +53,11 @@ ActiveRecord::Schema.define(version: 20170726110954) do
     t.string "unconfirmed_email"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin", default: false
     t.index ["confirmation_token"], name: "index_users_on_confirmation_token", unique: true
     t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "taggings", "articles"
+  add_foreign_key "taggings", "tags"
 end

@@ -1,4 +1,4 @@
-$ ->
+###$ ->
   if $('.pagination').length && $('#articles').length
     $(window).scroll ->
       url = $('.pagination .next a').attr('href')
@@ -6,3 +6,4 @@ $ ->
         $('.pagination').text('Загрузка...')
         $.getScript(url)
     $(window).scroll()
+###
